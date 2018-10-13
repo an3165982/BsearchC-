@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    
+    public class Program
+    {
+        public int bsearch(int[] arr, int X)
+        {
+            for (int i = 0; i<arr.Length; i++)
+            {
+                if (arr[i] < X)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        static void Main(string[] args)
+        {
+            int[] array = { 119, 992, 34, 48, 33, 6, 76, 8, 59, 150 };
+            array = array.OrderByDescending(y => y).ToArray();
+            int x = 8;
+            Program p = new Program();
+            for(int i = 0; i<array.Length; i++)
+            {
+                Console.Write(array[i] + "  ");
+            }
+            Console.WriteLine();
+            if (p.bsearch(array, x) != -1)
+            {
+                Console.WriteLine(p.bsearch(array, x));
+            }
+            else
+            {
+                Console.WriteLine("В массиве находятся числа больше заданного");
+            }
+        }
+    }
+}
